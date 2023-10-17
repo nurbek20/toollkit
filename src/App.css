@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.container {
+    margin: 0 auto;
+    width: 1200px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title,.todo-form {
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todo-form input {
+    width: 500px;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid red;
+    margin: 0 20px;
+}
+.todo-form button {
+    font-size: 18px;
+    padding: 3px 20px;
+    cursor: pointer;
+}
+.todo-form button:active {
+    background: silver;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.todo-item{
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin-top: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-item span {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.change {
+    width: 80%;
+    height: 20px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid red;
+}
+.changebtn {
+    font-size: 18px;
+    padding: 3px 20px;
+    cursor: pointer;
+}
+.text {
+    color: orange;
+    font-size: bold;
 }
