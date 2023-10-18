@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TodoItem = (props) => {
-  const {id, text,handelDelete}=props
+  const {
+    id,
+    text,
+    change,
+    completed,
+    handleDeleteTodo,
+    handleChangeTodo,
+    handleEditTodo,
+    handleToggleTodo
+  } = props;
+  console.log(props);
+  const [input, setInput] = useState(text);
+  const addClick = () => {
+    if(input.trim()!==""){
+      handleEditTodo(id,input)
+    }
+  };
 
-  let change=false
   return (
     <div className="todo-item">
       {change ? (
         <>
           <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             className="change"
             type="text"
           />
-          <button className="changebtn">Add</button>
+          <button onClick={addClick} className="changebtn">Add</button>
         </>
       ) : (
         <>
-          <input type="checkbox" name="" id="" />
-          <span>{text}</span>
-          <button>change</button>
-          <button onClick={()=>handelDelete(id)} >delete</button>
+          <input checked={completed} onChange={()=>handleToggleTodo(id)} type="checkbox" name="" id="" />
+          <span className={completed?"text":null}>{text}</span>
+          <button disabled={completed ? true : false} onClick={() => handleChangeTodo(id)}>change</button>
+          <button disabled={completed ? false : true} onClick={() => handleDeleteTodo(id)}>delete</button>
         </>
       )}
     </div>
